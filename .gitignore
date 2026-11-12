@@ -1,0 +1,28 @@
+# secrets and local data - NEVER commit these (they contain student records and password hashes)
+.env
+*.env
+!.env.example
+*.db
+*.sqlite
+*.sqlite3
+backend/backups
+_backups
+*.dump
+
+# python
+.venv
+venv
+__pycache__
+*.pyc
+.pytest_cache
+
+# node / build output
+node_modules
+frontend/dist
+*.tsbuildinfo
+
+# editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
