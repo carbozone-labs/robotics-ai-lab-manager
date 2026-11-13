@@ -13,7 +13,7 @@ export default function Labels() {
   const [assets, setAssets] = useState<any[] | null>(null);
   const [type, setType] = useState(sp.get("type") === "all" ? "all" : "computers"); const [q, setQ] = useState(""); const [loc, setLoc] = useState("");
   const [sel, setSel] = useState<Set<number>>(new Set()); const [kids, setKids] = useState(true);
-  const [base, setBase] = useState(localStorage.getItem(BASE_KEY) || window.location.origin); const [size, setSize] = useState("medium");
+  const [base, setBase] = useState(localStorage.getItem(BASE_KEY) || (window.location.origin + import.meta.env.BASE_URL.replace(/\/$/, ""))); const [size, setSize] = useState("medium");
   const [labels, setLabels] = useState<any[] | null>(null); const [busy, setBusy] = useState(false);
   useEffect(() => { api("/api/assets").then(setAssets); }, []);
   const rows = useMemo(() => (assets || []).filter((a) => (type === "all" || a.kind === "Desktop Computer") && (!loc || a.location === loc)

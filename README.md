@@ -12,10 +12,14 @@ No server. The React site runs on GitHub Pages and talks directly to Supabase (P
 `cd frontend && npm install`, create `frontend/.env` with the two `VITE_` values, `npm run dev`.
 
 ## Migration status
-**Working on Supabase:** login + roles, Overview, Students (list/add/edit, CSV import), Inventory, Issue Items, Return Items, Issue History, Batches/Divisions (list/add), Teachers (list), and CSV export of the Issue Log, Students, Teachers, Inventory.
+**Working on Supabase:** login + roles, Overview, Students (list/add/edit, CSV import), Inventory, Issue Items, Return Items, Issue History, Lab Assets, Equipment Allocation, Computer Systems, **Maintenance Register, QR Labels + Scan, Teachers (add/edit/deactivate/delete), Batches and Divisions (add/rename/delete)**, and CSV export of the Issue Log, Students, Teachers, Inventory, Assets, Computers, Allocations, Maintenance.
 
-**Database ready, screens not yet moved** (they show "not moved to Supabase yet"): Lab Assets, Computer Systems, Equipment Allocation, Maintenance Register, QR Labels, Lab Timetable, Teacher Timetable, Attendance, Reports, Settings, Excel import / JSON backup / restore, PDF slips.
-The CSV exports for assets, computers, allocations, maintenance and timetable work but stay empty until those screens are moved.
+**Not yet moved** (they show "not moved to Supabase yet"): Lab Timetable, Teacher Timetable, Attendance + Attendance Reports, Reports, Settings, Excel import / JSON backup / restore, PDF slips.
 
-## SQL files: run in this order in Supabase -> SQL Editor
-1. `supabase/schema.sql`  2. `supabase/update_1_returns.sql`  3. `supabase/update_2_modules.sql`
+## Database setup (simple way)
+1. Run `supabase/schema.sql` once (first time only).
+2. Then paste **`supabase/run_all_updates.sql`** into Supabase -> SQL Editor -> Run. It contains every update, is safe to run again, and ends with a schema-cache reload. Use this one file for all future updates too.
+(The separate `update_*.sql` files are the same code split into pieces.)
+
+## QR labels
+Labels point to `<site address>/#/scan/<Asset ID>`. On GitHub Pages the address is `https://<user>.github.io/<repo>`; the QR Labels page fills this in automatically.
