@@ -1,0 +1,21 @@
+{
+  "name": "Robotics & AI Lab Manager",
+  "short_name": "Lab Manager",
+  "description": "Equipment issue/return, inventory, attendance and lab management",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#050a16",
+  "theme_color": "#050a16",
+  "icons": [
+    { "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Issue items", "url": "./issue", "icons": [{ "src": "./icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Return items", "url": "./returns", "icons": [{ "src": "./icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Attendance", "url": "./attendance", "icons": [{ "src": "./icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}
